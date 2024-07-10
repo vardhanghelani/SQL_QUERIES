@@ -6,11 +6,11 @@ Website VARCHAR(50),
 City VARCHAR(25),
 Address VARCHAR(100))
  
- INSERT INTO STUDENT VALUES (1011 ,'Keyur',' Patel', 'techonthenet.com',' Rajkot', 'A-303 ''Vasant Kunj''')
+ INSERT INTO STUDENT VALUES (1011 ,'Keyur','Patel', 'techonthenet.com',' Rajkot', 'A-303 ''Vasant Kunj''')
 INSERT INTO STUDENT VALUES(1022 ,'Hardik', 'Shah' ,'digminecraft.com ','Ahmedabad ','“Ram Krupa”,RAIYA ROADF')
 INSERT INTO STUDENT VALUES(1033 ,'Kajal ','Trivedi ','bigactivities.com ','Baroda ','Raj bhavan plot,near garden')
-INSERT INTO STUDENT VALUES(1044 ,'Bhoomi',' Gajera ','checkyourmath.com', 'Ahmedabad', '“Jig’s Home”,Narol')
-INSERT INTO STUDENT VALUES (1055, 'Harmit',' Mitel', '@me.darshan.com ','Rajkot', 'B-55,Raj Residency')
+INSERT INTO STUDENT VALUES(1044 ,'Bhoomi','Gajera ','checkyourmath.com', 'Ahmedabad', '"Jig’s Home",Narol')
+INSERT INTO STUDENT VALUES (1055, 'Harmit','Mitel', '@me.darshan.com ','Rajkot', 'B-55,Raj Residency')
 INSERT INTO STUDENT VALUES(1066 ,'Ashok ','Jani', NULL, 'Baroda ','A502,Club House Building')
 SELECT *FROM STUDENT
 truncate  table student
@@ -18,3 +18,27 @@ truncate  table student
 SELECT FIRSTNAME FROM STUDENT WHERE FirstName LIKE 'K%'
 SELECT FIRSTNAME FROM STUDENT WHERE FirstName LIKE '_____'
 SELECT FIRSTNAME,LastName FROM STUDENT WHERE CITY LIKE '_____a'
+SELECT *FROM STUDENT WHERE LastName LIKE '%TEL'
+SELECT *FROM STUDENT WHERE FIRStName LIKE 'HA%T'
+SELECT *FROM STUDENT WHERE FIRStName LIKE'K_Y%'
+SELECT FIRSTNAME FROM STUDENT WHERE FIRStName LIKE'_____' AND Website IS NULL 
+SELECT *FROM STUDENT WHERE LastName LIKE '%JER%'
+SELECT *FROM STUDENT WHERE City LIKE 'R%' OR City LIKE'B%'
+SELECT *FROM STUDENT WHERE Website IS NOT NULL
+SELECT *FROM STUDENT WHERE FIRStName LIKE '[A-H]%'
+SELECT *FROM STUDENT WHERE FIRStName LIKE '_[AEIOU]%'
+SELECT *FROM STUDENT WHERE FIRStName LIKE '%_____%' AND WEBSITE IS NULL
+SELECT *FROM STUDENT WHERE LAStName LIKE 'Pat%'
+SELECT *FROM STUDENT WHERE city not LIKE 'b%'
+--PART B
+SELECT *FROM STUDENT WHERE FIRStName LIKE '[A-H]%'
+SELECT *FROM STUDENT WHERE FIRStName LIKE 'H[AEIOU]%'
+SELECT *FROM STUDENT WHERE LAStName NOT LIKE '%[A]'
+SELECT *FROM STUDENT WHERE FIRStName  NOT LIKE '[AEIOU]%'
+SELECT *FROM STUDENT WHERE Website LIKE '%.NET%'
+
+--PARTC
+SELECT *FROM STUDENT WHERE Address LIKE '%-%'
+SELECT *FROM STUDENT WHERE Address LIKE '%''%' OR Address LIKE '%"%'
+SELECT *FROM STUDENT WHERE Website LIKE '%@%'
+SELECT *FROM STUDENT WHERE FIRStName LIKE '____' OR FirstName LIKE '_____'
