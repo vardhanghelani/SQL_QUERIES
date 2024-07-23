@@ -5,7 +5,7 @@ SELECT*FROM deposit_detail
 ALTER TABLE DEPOSIT ALTER COLUMN CNAME VARCHAR(35);
 alter table deposit alter column amount int
 alter table deposit alter column amount int
-SP_RENAME 'DEPOSI'
+SP_RENAME 'DEPOSIT.ACTNO','ANO'
 sp_rename 'deposit','deposit_detail'
 alter table deposit_detail drop column city
 --part b
@@ -16,7 +16,8 @@ SP_RENAME 'deposit_detail.CNAME','COUSTOMER_NAME'
 CREATE TABLE STUDENT_DETAIL  (
 Enrollment_No VARCHAR(20),
 Name VARCHAR(25),
-CPI DECIMAL(5,2),Birthdate DATETIME
+CPI DECIMAL(5,2),
+Birthdate DATETIME
 )
 SELECT *FROM STUDENT_DETAIL
 
