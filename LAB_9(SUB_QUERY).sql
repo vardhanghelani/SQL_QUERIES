@@ -42,7 +42,7 @@ INSERT INTO DEPARTMENT (DID, DName) VALUES
 (40, 'Civil');
 select *from student_data
 
---Part – A:
+--Part â€“ A:
 --1. Display details of students who are from computer department.
 SELECT NAME FROM STUDENT_DATA WHERE DID =(SELECT DID FROM DEPARTMENT WHERE DName='COMPUTER')
 --2. Displays name of students whose SPI is more than 8.
@@ -52,12 +52,12 @@ SELECT *FROM STUDENT_DATA WHERE CITY ='RAJKOT' AND DID=(SELECT DID FROM DEPARTME
 --4. Find total number of students of electrical department.
 SELECT COUNT(NAME) FROM STUDENT_DATA WHERE DID =(SELECT DID FROM DEPARTMENT WHERE DNAME='ELECTRICAL')
 --5. Display name of student who is having maximum SPI.
-SELECT NAME FROM STUDENT_DATA WHERE RNO =()
+select name from student_data where no=(select rno from academic where spi =(select MAX(spi) from academic) )
 --6. Display details of students having more than 1 backlog.
---Part – B:
+--Part â€“ B:
 --1. Display name of students who are either from computer department or from mechanical department.
 --2. Display name of students who are in same department as 102 studying in.
---Part – C:
+--Part â€“ C:
 --1. Display name of students whose SPI is more than 9 and who is from electrical department.
 --2. Display name of student who is having second highest SPI.
 --3. Display city names whose students branch wise SPI is 9.2
