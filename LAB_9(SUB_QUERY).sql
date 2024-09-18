@@ -52,12 +52,19 @@ SELECT *FROM STUDENT_DATA WHERE CITY ='RAJKOT' AND DID=(SELECT DID FROM DEPARTME
 --4. Find total number of students of electrical department.
 SELECT COUNT(NAME) FROM STUDENT_DATA WHERE DID =(SELECT DID FROM DEPARTMENT WHERE DNAME='ELECTRICAL')
 --5. Display name of student who is having maximum SPI.
-select name from student_data where no=(select rno from academic where spi =(select MAX(spi) from academic) )
+SELECT NAME FROM STUDENT_DATA WHERE NO =(SELECT RNO FROM ACADEMIC WHERE SPI=(SELECT MAX(SPI) FROM ACADEMIC))
 --6. Display details of students having more than 1 backlog.
+SELECT NAME FROM STUDENT_DATA WHERE NO IN (SELECT RNO FROM ACADEMIC WHERE BKLOG>1)
 --Part – B:
 --1. Display name of students who are either from computer department or from mechanical department.
+SELECT NAME FROM STUDENT_DATA WHERE DID IN(SELECT DID FROM DEPARTMENT WHERE DName IN('Mechanical','COMPUTER'))
 --2. Display name of students who are in same department as 102 studying in.
+SELECT NAME FROM STUDENT_DATA WHERE DID IN(SELECT DID FROM DEPARTMENT WHERE DNAME IN(SELECT DNAME FROM DEPARTMENT WHERE DID IN(SELECT DID FROM STUDENT_DATA WHERE NO=102)))
 --Part – C:
 --1. Display name of students whose SPI is more than 9 and who is from electrical department.
---2. Display name of student who is having second highest SPI.
+SELECT NAME FROM STUDENT_DATA WHERE NO =(SELECT RNO FROM ACADEMIC WHERE SPI>9) AND DID=(SELECT DID FROM DEPARTMENT WHERE DName='ELECTRICAL') 
+--2. Display name of student who is having second highest SPI
+SELECT NAME FROM STUDENT_DATA WHERE NO=(SELECT RNO FROM ACADEMIC WHERE SPI =(SELECT TOP 1 SPI  FROM (SELECT DISTINCT TOP 2 SPI FROM ACADEMIC ORDER BY SPI DESC) AS RESULT ORDER BY SPI))
 --3. Display city names whose students branch wise SPI is 9.2
+SELECT DISTINCT City
+FROM STUDENT_DATA WHERE no IN (SELECT Rno FROM ACADEMIC WHERE SPI = 9.2);
